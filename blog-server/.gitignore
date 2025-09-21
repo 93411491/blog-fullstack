@@ -1,0 +1,29 @@
+# Dependency directories
+# Mac: Command + Shift + . to show hidden files
+node_modules/
+
+# Build output
+dist/
+
+# Log files
+*.log
+logs/
+npm-debug.log*
+yarn-error.log
+
+# Environment variables
+# Store sensitive information like database credentials, API keys, etc.
+# DO NOT commit this file to version control
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+
+# IDE and editor directories
+.vscode/
+.idea/
+
+# Operating System generated files
+.DS_Store
+Thumbs.db
