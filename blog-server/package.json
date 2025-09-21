@@ -1,0 +1,38 @@
+{
+  "name": "blog-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "-": "^0.0.1",
+    "@koa/cors": "^5.0.0",
+    "bcryptjs": "^3.0.2",
+    "install": "^0.13.0",
+    "jsonwebtoken": "^9.0.2",
+    "koa": "^3.0.1",
+    "koa-bodyparser": "^4.4.1",
+    "koa-router": "^14.0.0",
+    "mongoose": "^8.18.1",
+    "npm": "^11.6.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/koa": "^3.0.0",
+    "@types/koa__cors": "^5.0.0",
+    "@types/koa-bodyparser": "^4.3.12",
+    "@types/koa-router": "^7.4.8",
+    "@types/mongoose": "^5.11.96",
+    "@types/node": "^24.5.2",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
