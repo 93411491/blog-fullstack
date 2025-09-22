@@ -3,8 +3,10 @@ import cors from "@koa/cors";
 import parser from "koa-bodyparser";
 import UserRouter from "./routes/users";
 import connectDB from "./config/db";
+import { connectRedis } from "./config/redis";
 
 connectDB();
+connectRedis();
 
 const app = new Koa();
 const PORT = 3001;
