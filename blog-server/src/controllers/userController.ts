@@ -51,6 +51,8 @@ export const register = async (ctx: Context) => {
 
 export const login = async (ctx: Context) => {
   try {
+    console.log("logged in start");
+    
     const { username, password } = ctx.request.body as {
       [key: string]: string;
     };
@@ -97,6 +99,7 @@ export const login = async (ctx: Context) => {
         username: user.username,
       },
     };
+    console.log("logged in success");
   } catch (error) {
     ctx.status = 500;
     ctx.body = { msg: "An error occurred during login." };
