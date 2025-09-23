@@ -2,6 +2,7 @@ import Koa from "koa";
 import cors from "@koa/cors";
 import parser from "koa-bodyparser";
 import UserRouter from "./routes/users";
+import PostRouter from "./routes/posts";
 import connectDB from "./config/db";
 import { connectRedis } from "./config/redis";
 
@@ -16,6 +17,9 @@ app.use(parser());
 
 app.use(UserRouter.routes());
 app.use(UserRouter.allowedMethods());
+
+app.use(PostRouter.routes());
+app.use(PostRouter.allowedMethods());
 
 app.use(async (ctx) => {
   if (ctx.path === "/") {
