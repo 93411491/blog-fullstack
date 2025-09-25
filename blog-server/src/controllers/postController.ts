@@ -3,9 +3,10 @@ import Post from "../models/Post";
 
 export const getAllPosts = async (ctx: Context) => {
   try {
-    const posts = Post.find()
+    const posts =await Post.find()
       .sort({ createdAt: -1 })
-      .populate("author", "username");
+      .populate("author", "username")
+      .lean();
     ctx.status = 200;
     ctx.body = posts;
   } catch (error) {
