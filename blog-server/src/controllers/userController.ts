@@ -99,7 +99,7 @@ export const login = async (ctx: Context) => {
         username: user.username,
       },
     };
-    console.log("logged in success");
+    console.log("logged in success, request : ", ctx.request, ",response : ", ctx.body);
   } catch (error) {
     ctx.status = 500;
     ctx.body = { msg: "An error occurred during login." };

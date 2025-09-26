@@ -23,12 +23,15 @@ export default function LoginPage() {
         {
           username,
           password,
+        },
+        {
+          withCredentials: true,
         }
       );
 
       if (response.status === 200) {
         console.log("Login successful:", response.data);
-        router.push("/dashboard");
+        router.push("/");
       }
     } catch (err: any) {
       console.error("Login failed:", err);

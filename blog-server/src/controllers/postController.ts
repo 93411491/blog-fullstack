@@ -5,14 +5,34 @@ export const getAllPosts = async (ctx: Context) => {
   try {
     const posts =await Post.find()
       .sort({ createdAt: -1 })
-      .populate("author", "username")
-      .lean();
+      .populate("author", "username");
     ctx.status = 200;
     ctx.body = posts;
   } catch (error) {
     console.error("Error fetching posts:", error);
     ctx.status = 500;
     ctx.body = { message: "An error occurred while fetching posts." };
+  }
+};
+
+export const getPostById = async (ctx: Context) => {
+  try {
+    const { id } = ctx.params;
+    const post = await Post.findById(id).populate("author", "username");
+
+    if (!post) {
+      ctx.status = 404;
+      ctx.body = { msg: "Post not found" };
+      return;
+    }
+
+    ctx.status = 200;
+    ctx.body = post;
+    console.log("博客详情获取 success");
+  } catch (error) {
+    console.error("Error fetching post:", error);
+    ctx.status = 500;
+    ctx.body = { message: "An error occurred while fetching the post." };
   }
 };
 
@@ -45,11 +65,11 @@ export const createPost = async (ctx: Context) => {
     });
     await newPost.save();
     ctx.status = 201;
-    ctx.body = newPost
+    ctx.body = newPost;
     console.log("createPost success");
   } catch (error) {
-    console.error('Error creating post:', error);
+    console.error("Error creating post:", error);
     ctx.status = 500;
-    ctx.body = { message: 'An error occurred while creating the post.' };
+    ctx.body = { message: "An error occurred while creating the post." };
   }
 };
